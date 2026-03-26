@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Agent360 | Real Estate Investing for Every Indian</title>
+<meta name="description" content="Agent360.in — India's simplest real estate investment platform. Start with ₹5,000. Invest in premium properties across India without buying the whole property."/>
+<meta name="keywords" content="real estate investment india, fractional property investment, REIT india, property investment for beginners, agent360, invest in real estate online india, passive rental income india"/>
+<meta name="author" content="Agent360"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://agent360.in"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://agent360.in"/>
+<meta property="og:title" content="Agent360 | Real Estate Investing Made Simple"/>
+<meta property="og:description" content="Own a piece of premium Indian real estate starting at just ₹5,000. No brokers. No paperwork. All online."/>
+<meta property="og:image" content="https://agent360.in/og.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Agent360","url":"https://agent360.in","description":"India's simplest fractional real estate investment platform","areaServed":"IN","priceRange":"₹5000+","address":{"@type":"PostalAddress","addressCountry":"IN"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../src/styles/main.css"/>
+</head>
+<body>
+
+<!-- ════ NAVBAR ════ -->
+<nav id="nav">
+  <div class="logo">Agent<em>360</em></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#blog">Insights</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn btn-ghost" onclick="openAuth('login')">Log In</button>
+    <button class="btn btn-clay" onclick="openAuth('signup')">Start Investing</button>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="home">
+  <div class="hero-arc"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="dot"></span>India's #1 Real Estate Investment Platform</div>
+    <h1>Own Premium<br/><span class="line2">Property</span><br/>From ₹5,000</h1>
+    <p class="hero-desc">No brokers. No paperwork. No crores needed. Invest in Grade-A commercial and residential real estate — earn rental income monthly.</p>
+    <div class="hero-actions">
+      <button class="btn btn-clay btn-lg" onclick="openAuth('signup')">🏛 Start Investing Free</button>
+      <a href="#calculator" class="btn btn-outline btn-lg">📐 ROI Calculator</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <div class="trust-av" style="background:#C4714A">RK</div>
+        <div class="trust-av" style="background:#4A7C59">PM</div>
+        <div class="trust-av" style="background:#8B5E3C">AS</div>
+        <div class="trust-av" style="background:#6B5A4E">NM</div>
+      </div>
+      <div class="trust-text"><strong>48,000+ investors</strong> already earning passive income</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="property-card-stack">
+      <div class="return-pill">
+        <div class="rval">11.4%</div>
+        <div class="rlbl">Annual Returns</div>
+      </div>
+      <div class="prop-card prop-card-main">
+        <div class="prop-img">
+          <div class="building-art">
+            <div class="bld" style="width:30px;height:120px"></div>
+            <div class="bld" style="width:45px;height:160px;opacity:.8"></div>
+            <div class="bld" style="width:38px;height:200px;opacity:.9"></div>
+            <div class="bld" style="width:40px;height:140px;opacity:.7"></div>
+            <div class="bld" style="width:28px;height:100px;opacity:.5"></div>
+          </div>
+          <div class="prop-badge">Commercial</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-name">Prestige Tech Park</div>
+          <div class="prop-loc">📍 Whitefield, Bengaluru</div>
+          <div class="prop-stats">
+            <div class="prop-stat"><div class="lbl">Min. Invest</div><div class="val">₹10,000</div></div>
+            <div class="prop-stat"><div class="lbl">Rental Yield</div><div class="val">9.2%</div></div>
+            <div class="prop-stat"><div class="lbl">Appreciation</div><div class="val">+7%/yr</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card prop-card-mini">
+        <div class="prop-img prop-img-sm">
+          <div class="prop-badge" style="font-size:.55rem">Residential</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-name">Godrej Woods</div>
+          <div class="prop-loc">📍 Noida Sec-43</div>
+          <div class="prop-stats">
+            <div class="prop-stat"><div class="lbl">Yield</div><div class="val sm">7.8%</div></div>
+            <div class="prop-stat"><div class="lbl">Min</div><div class="val sm">₹5K</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ STATS BAND ════ -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-blk"><div class="sv">₹3,800<span class="ss">Cr</span></div><div class="sl">Total Assets Managed</div></div>
+    <div class="stat-blk"><div class="sv">48K<span class="ss">+</span></div><div class="sl">Active Investors</div></div>
+    <div class="stat-blk"><div class="sv">11.4<span class="ss">%</span></div><div class="sl">Average Annual Return</div></div>
+    <div class="stat-blk"><div class="sv">120<span class="ss">+</span></div><div class="sl">Properties Listed</div></div>
+  </div>
+</div>
+
+<!-- ════ HOW IT WORKS ════ -->
+<section id="how" class="section-cream-dk">
+  <div class="container">
+    <div class="section-head c reveal">
+      <span class="tag">How It Works</span>
+      <h2 class="section-title">Invest in property in<br/>4 simple steps</h2>
+      <p class="section-sub">No real estate knowledge needed. We've made it as simple as ordering food online.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-box reveal"><div class="step-n">01</div><h3>Create Free Account</h3><p>Sign up with your email. Complete your KYC digitally using Aadhaar — takes under 5 minutes.</p></div>
+      <div class="step-box reveal"><div class="step-n">02</div><h3>Browse Properties</h3><p>Explore SEBI-approved, professionally vetted Grade-A commercial & residential properties.</p></div>
+      <div class="step-box reveal"><div class="step-n">03</div><h3>Invest Any Amount</h3><p>Start with as little as ₹5,000. Buy fractional ownership. Your investment is legally registered.</p></div>
+      <div class="step-box reveal"><div class="step-n">04</div><h3>Earn Monthly</h3><p>Receive rental income every month directly in your bank account. Track returns in real-time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROPERTIES ════ -->
+<section id="properties" class="section-cream">
+  <div class="container">
+    <div class="section-head split reveal">
+      <div><span class="tag">Featured Properties</span><h2 class="section-title">Invest in the<br/>best of India</h2></div>
+      <button class="btn btn-outline" onclick="openAuth('signup')">View All 120+ Properties →</button>
+    </div>
+    <div class="prop-grid" id="propertyGrid">
+      <!-- Injected by app.js -->
+      <div class="listing-card reveal">
+        <div class="listing-img" style="background:linear-gradient(160deg,#B07840,#5C3520)">
+          <div class="listing-badge badge-hot">🔥 Hot</div>
+          <div class="yield-tag"><div class="yv">9.8%</div><div class="yl">Yield</div></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-name">DLF Cyber City Tower B</div>
+          <div class="listing-city">📍 Gurugram, Haryana</div>
+          <div class="listing-meta">
+            <div class="lm-item"><div class="lm-l">Min. Invest</div><div class="lm-v">₹10,000</div></div>
+            <div class="lm-item"><div class="lm-l">Total Value</div><div class="lm-v">₹48 Cr</div></div>
+            <div class="lm-item"><div class="lm-l">Type</div><div class="lm-v">Commercial</div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Funding Progress</span><span>87% Filled</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:87%"></div></div>
+          </div>
+          <button class="listing-cta" onclick="openAuth('signup')">Invest Now →</button>
+        </div>
+      </div>
+      <div class="listing-card reveal">
+        <div class="listing-img" style="background:linear-gradient(160deg,#7A9E7E,#3D5C42)">
+          <div class="listing-badge badge-new">✨ New</div>
+          <div class="yield-tag"><div class="yv">7.4%</div><div class="yl">Yield</div></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-name">Sobha Dream Acres</div>
+          <div class="listing-city">📍 Panathur, Bengaluru</div>
+          <div class="listing-meta">
+            <div class="lm-item"><div class="lm-l">Min. Invest</div><div class="lm-v">₹5,000</div></div>
+            <div class="lm-item"><div class="lm-l">Total Value</div><div class="lm-v">₹22 Cr</div></div>
+            <div class="lm-item"><div class="lm-l">Type</div><div class="lm-v">Residential</div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Funding Progress</span><span>34% Filled</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:34%"></div></div>
+          </div>
+          <button class="listing-cta" onclick="openAuth('signup')">Invest Now →</button>
+        </div>
+      </div>
+      <div class="listing-card reveal">
+        <div class="listing-img" style="background:linear-gradient(160deg,#8B6B8B,#4A2E4A)">
+          <div class="listing-badge badge-fill">⚡ Closing Soon</div>
+          <div class="yield-tag"><div class="yv">10.2%</div><div class="yl">Yield</div></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-name">Hiranandani Business Park</div>
+          <div class="listing-city">📍 Powai, Mumbai</div>
+          <div class="listing-meta">
+            <div class="lm-item"><div class="lm-l">Min. Invest</div><div class="lm-v">₹25,000</div></div>
+            <div class="lm-item"><div class="lm-l">Total Value</div><div class="lm-v">₹120 Cr</div></div>
+            <div class="lm-item"><div class="lm-l">Type</div><div class="lm-v">Mixed Use</div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Funding Progress</span><span>96% Filled</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:96%"></div></div>
+          </div>
+          <button class="listing-cta" onclick="openAuth('signup')">Join Waitlist →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CALCULATOR ════ -->
+<section id="calculator" class="section-ink">
+  <div class="container">
+    <div class="calc-grid">
+      <div>
+        <div class="section-head reveal">
+          <span class="tag" style="color:var(--clay-lt)">ROI Calculator</span>
+          <h2 class="section-title" style="color:#fff">See your rental<br/>income grow</h2>
+          <p class="section-sub" style="color:rgba(255,255,255,.5)">Calculate real estate returns including monthly rental income and property appreciation.</p>
+        </div>
+        <div class="calc-box reveal">
+          <div class="c-group">
+            <label>Investment Amount</label>
+            <input type="range" id="cAmt" min="5000" max="5000000" step="5000" value="100000" oninput="calcRE()"/>
+            <div class="c-row"><span class="c-val">₹<span id="cAmtV">1,00,000</span></span><span class="c-hint">fractional ownership</span></div>
+          </div>
+          <div class="c-group">
+            <label>Annual Rental Yield (%)</label>
+            <input type="range" id="cYield" min="4" max="14" step="0.2" value="9" oninput="calcRE()"/>
+            <div class="c-row"><span class="c-val"><span id="cYieldV">9.0</span>% p.a.</span><span class="c-hint">avg platform: 9.2%</span></div>
+          </div>
+          <div class="c-group">
+            <label>Property Appreciation (%)</label>
+            <input type="range" id="cApp" min="2" max="15" step="0.5" value="7" oninput="calcRE()"/>
+            <div class="c-row"><span class="c-val"><span id="cAppV">7.0</span>% p.a.</span><span class="c-hint">historical avg</span></div>
+          </div>
+          <div class="c-group">
+            <label>Holding Period (Years)</label>
+            <input type="range" id="cYrs" min="1" max="20" step="1" value="5" oninput="calcRE()"/>
+            <div class="c-row"><span class="c-val"><span id="cYrsV">5</span> years</span><span class="c-hint">compounding works</span></div>
+          </div>
+          <button class="btn btn-clay btn-lg" onclick="openAuth('signup')">🏛 Start Earning Today</button>
+        </div>
+      </div>
+      <div class="result-panel reveal">
+        <div class="res-lbl">Total Portfolio Value</div>
+        <div class="res-big" id="reTotal">₹1.72L</div>
+        <div class="res-sub" id="reSub">Invested ₹1L · Total returns ₹72K (72%)</div>
+        <div class="res-breakdown">
+          <div class="rb-row"><span class="rb-lbl">Invested</span><div class="rb-track"><div class="rb-fill fill-inv" id="rbInv" style="width:58%"></div></div><span class="rb-pct" id="rbInvPct">58%</span></div>
+          <div class="rb-row"><span class="rb-lbl">Rental Inc.</span><div class="rb-track"><div class="rb-fill fill-ren" id="rbRen" style="width:24%"></div></div><span class="rb-pct" id="rbRenPct">24%</span></div>
+          <div class="rb-row"><span class="rb-lbl">Appreciation</span><div class="rb-track"><div class="rb-fill fill-app" id="rbApp" style="width:18%"></div></div><span class="rb-pct" id="rbAppPct">18%</span></div>
+        </div>
+        <div class="res-footer">
+          <div class="res-row"><span>Monthly Rental Income</span><span class="res-val-g" id="reMonthly">₹750/mo</span></div>
+          <div class="res-row"><span>Property Value at Exit</span><span class="res-val-y" id="rePropVal">₹1.40L</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PORTFOLIO TRACKER ════ -->
+<section id="portfolio" class="section-cream-dk">
+  <div class="container">
+    <div class="section-head split reveal">
+      <div><span class="tag">Portfolio Tracker</span><h2 class="section-title">All your properties,<br/>one dashboard</h2></div>
+      <button class="btn btn-clay" onclick="openAuth('signup')">View My Portfolio →</button>
+    </div>
+    <div class="portfolio-ui reveal">
+      <div class="port-topbar">
+        <h3>My Real Estate Portfolio</h3>
+        <div class="port-live">Live Tracking</div>
+      </div>
+      <div class="port-summary">
+        <div class="ps-item"><div class="ps-lbl">Total Invested</div><div class="ps-val">₹3.4L</div><div class="ps-chg neutral">Across 4 properties</div></div>
+        <div class="ps-item"><div class="ps-lbl">Current Value</div><div class="ps-val">₹4.18L</div><div class="ps-chg up">▲ +₹78,200 (22.9%)</div></div>
+        <div class="ps-item"><div class="ps-lbl">Monthly Rental</div><div class="ps-val">₹2,640</div><div class="ps-chg up">▲ Paid 1st of month</div></div>
+        <div class="ps-item"><div class="ps-lbl">Avg Yield</div><div class="ps-val">9.3%</div><div class="ps-chg up">▲ vs FD: 7.1%</div></div>
+      </div>
+      <div class="port-holdings">
+        <div class="hold-head"><span>Property</span><span>Invested</span><span>Current</span><span>Yield</span><span>P&amp;L</span></div>
+        <div class="hold-row"><div class="hold-prop"><div class="hold-icon" style="background:rgba(196,113,74,.12);color:var(--clay)">🏢</div><div><div class="hold-pname">DLF Cyber City</div><div class="hold-pcity">Gurugram, Haryana</div></div></div><div class="hold-val">₹1,50,000</div><div class="hold-val">₹1,92,600</div><div class="hold-ret"><span class="pct-badge pct-up">9.8%</span></div><div class="hold-ret up">+₹42,600</div></div>
+        <div class="hold-row"><div class="hold-prop"><div class="hold-icon" style="background:rgba(74,124,89,.12);color:var(--sage)">🏘</div><div><div class="hold-pname">Sobha Dream Acres</div><div class="hold-pcity">Bengaluru, KA</div></div></div><div class="hold-val">₹80,000</div><div class="hold-val">₹93,200</div><div class="hold-ret"><span class="pct-badge pct-up">7.4%</span></div><div class="hold-ret up">+₹13,200</div></div>
+        <div class="hold-row"><div class="hold-prop"><div class="hold-icon" style="background:rgba(107,90,78,.12);color:var(--stone)">🏗</div><div><div class="hold-pname">Hiranandani Powai</div><div class="hold-pcity">Mumbai, MH</div></div></div><div class="hold-val">₹75,000</div><div class="hold-val">₹97,500</div><div class="hold-ret"><span class="pct-badge pct-up">10.2%</span></div><div class="hold-ret up">+₹22,500</div></div>
+        <div class="hold-row"><div class="hold-prop"><div class="hold-icon" style="background:rgba(180,74,42,.1);color:var(--rust)">🏠</div><div><div class="hold-pname">Prestige Lakeside</div><div class="hold-pcity">Whitefield, Bengaluru</div></div></div><div class="hold-val">₹35,000</div><div class="hold-val">₹34,100</div><div class="hold-ret"><span class="pct-badge pct-dn">−2.6%</span></div><div class="hold-ret dn">−₹900</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ BLOG ════ -->
+<section id="blog" class="section-cream">
+  <div class="container">
+    <div class="section-head split reveal">
+      <div><span class="tag">Market Insights</span><h2 class="section-title">Learn before<br/>you invest</h2></div>
+      <button class="btn btn-outline">All Articles →</button>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#C4714A,#7A3820)"><div class="blog-cat">Beginner Guide</div></div>
+        <div class="blog-body"><h3>Fractional Real Estate: How ₹10,000 Can Make You a Property Owner in India</h3><p>Everything a first-time investor needs to know — how it works, SEBI regulations, tax treatment, and which cities offer the best returns.</p><div class="blog-meta"><span>Agent360 Team</span><span class="blog-dot">•</span><span>8 min read</span></div></div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#4A7C59,#2A4A34)"><div class="blog-cat">Market Analysis</div></div>
+        <div class="blog-body"><h3>Top 5 Indian Cities for Real Estate Investment in 2025</h3><p>Bengaluru, Pune, Hyderabad, Noida, or Mumbai? Here's where smart money is flowing and which micro-markets offer the highest yields.</p><div class="blog-meta"><span>Priya Mehta</span><span class="blog-dot">•</span><span>6 min read</span></div></div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#6B5A4E,#2E2016)"><div class="blog-cat">Tax &amp; Legal</div></div>
+        <div class="blog-body"><h3>How is Rental Income from Fractional Property Taxed in India?</h3><p>A plain-English breakdown of TDS, LTCG, STCG, and Section 24 deductions when you invest through Agent360.</p><div class="blog-meta"><span>CA Rohan Iyer</span><span class="blog-dot">•</span><span>5 min read</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ REVIEWS ════ -->
+<section id="reviews" class="section-cream-dk">
+  <div class="container">
+    <div class="section-head c reveal">
+      <span class="tag">Success Stories</span>
+      <h2 class="section-title">Real investors,<br/>real returns</h2>
+      <p class="section-sub">Join 48,000+ Indians earning passive income through real estate.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card reveal"><div class="stars">★★★★★</div><blockquote>"Agent360 let me start with ₹10,000. I now earn ₹900 in rental income every month — completely passive!"</blockquote><div class="rev-author"><div class="rev-av" style="background:var(--clay)">RK</div><div><div class="rev-name">Rahul Kulkarni</div><div class="rev-loc">Software Developer, Pune</div><div class="rev-invested">Invested ₹1.1L · Earning ₹900/mo</div></div></div></div>
+      <div class="review-card reveal"><div class="stars">★★★★★</div><blockquote>"The portfolio tracker is so clean. I can see exactly how each property is performing and when my rent hits. Genuinely impressed."</blockquote><div class="rev-author"><div class="rev-av" style="background:var(--sage)">NS</div><div><div class="rev-name">Nandita Sharma</div><div class="rev-loc">Teacher, Jaipur</div><div class="rev-invested">Invested ₹50,000 · 3 properties</div></div></div></div>
+      <div class="review-card reveal"><div class="stars">★★★★★</div><blockquote>"As a homemaker I never thought I could invest in real estate. My husband helped me set it up and now I earn independently."</blockquote><div class="rev-author"><div class="rev-av" style="background:#8B5E3C">AM</div><div><div class="rev-name">Ananya Mishra</div><div class="rev-loc">Homemaker, Bhopal</div><div class="rev-invested">Invested ₹25,000 · Started 6 months ago</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ NEWSLETTER ════ -->
+<section id="newsletter" class="section-cream">
+  <div class="container">
+    <div class="nl-box reveal">
+      <div class="nl-icon">🏡</div>
+      <h2>Get Weekly Property Picks</h2>
+      <p>New listings, rental yield updates, market reports, and beginner tips — free, every Tuesday.</p>
+      <div class="nl-perks">
+        <span class="nl-perk">New property alerts</span>
+        <span class="nl-perk">Market insights</span>
+        <span class="nl-perk">Tax-saving tips</span>
+        <span class="nl-perk">No spam, ever</span>
+      </div>
+      <div class="nl-form">
+        <input class="nl-input" type="email" id="nlEmail" placeholder="your@email.com"/>
+        <button class="btn btn-clay" onclick="doSubscribe()">Subscribe Free</button>
+      </div>
+      <p id="nl-msg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <div class="logo" style="color:#fff">Agent<em>360</em></div>
+      <p>India's most trusted fractional real estate platform. Making property investment accessible to every Indian, one unit at a time.</p>
+      <div class="ft-socials">
+        <a class="ft-soc" href="#" aria-label="X">𝕏</a>
+        <a class="ft-soc" href="#" aria-label="LinkedIn">in</a>
+        <a class="ft-soc" href="#" aria-label="Instagram">ig</a>
+        <a class="ft-soc" href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Invest</h4><ul><li><a href="#">Commercial Properties</a></li><li><a href="#">Residential Properties</a></li><li><a href="#">REITs</a></li><li><a href="#">Pre-Launch Properties</a></li><li><a href="#">NRI Investing</a></li></ul></div>
+    <div class="ft-col"><h4>Learn</h4><ul><li><a href="#">Beginner's Guide</a></li><li><a href="#">Blog & Insights</a></li><li><a href="#">Glossary</a></li><li><a href="#">Webinars</a></li><li><a href="#">FAQ</a></li></ul></div>
+    <div class="ft-col"><h4>Company</h4><ul><li><a href="#">About Agent360</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">SEBI Registration</a></li></ul></div>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2025 Agent360 Realty Pvt. Ltd. · agent360.in · CIN: U70200KA2024PTC000000</p>
+    <p>SEBI Registered · Investments subject to market risk · Read all documents carefully before investing</p>
+  </div>
+</footer>
+
+<!-- ════ AUTH MODAL ════ -->
+<div class="overlay" id="authOverlay">
+  <div class="modal">
+    <div class="modal-hd"><h2 id="mTitle">Welcome Back</h2><button class="modal-x" onclick="closeAuth()">✕</button></div>
+    <div class="m-tabs">
+      <button class="m-tab on" id="tLogin" onclick="switchTab('login')">Log In</button>
+      <button class="m-tab" id="tSignup" onclick="switchTab('signup')">Create Account</button>
+    </div>
+    <div class="m-form">
+      <div id="mNameWrap" style="display:none"><input class="m-input" type="text" id="mName" placeholder="Full Name"/></div>
+      <input class="m-input" type="email" id="mEmail" placeholder="Email Address"/>
+      <input class="m-input" type="password" id="mPass" placeholder="Password (min. 8 chars)"/>
+      <button class="m-submit" id="mSubmit" onclick="handleAuth()">Log In</button>
+      <p id="auth-msg"></p>
+      <p class="m-note">By continuing you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════ TOAST ════ -->
+<div class="toast" id="toast"></div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../src/lib/supabase.js"></script>
+<script src="../src/lib/calculator.js"></script>
+<script src="../src/lib/auth.js"></script>
+<script src="../src/lib/newsletter.js"></script>
+<script src="../src/lib/ui.js"></script>
+<script src="../src/lib/app.js"></script>
+</body>
+</html>
