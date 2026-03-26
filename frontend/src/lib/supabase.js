@@ -7,8 +7,8 @@
  * ─────────────────────────────────────────────
  */
 
-const SUPABASE_URL      = 'YOUR_SUPABASE_URL';       // e.g. https://xyzabcdef.supabase.co
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';  // starts with eyJ...
+const SUPABASE_URL      = 'https://bromucnvbkcskmjnxxqr.supabase.co';       // e.g. https://xyzabcdef.supabase.co
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb211Y252Ymtjc2ttam54eHFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MjI3OTksImV4cCI6MjA5MDA5ODc5OX0.TaoHaRIaudfI48iprRvIBSzhHEZ79N9nnAtTdaG1eMI';  // starts with eyJ...
 
 let _supa = null;
 
