@@ -1622,9 +1622,9 @@ footer{
    4. Replace the two values below
    5. Redeploy to Vercel
 ══════════════════════════════════════════════ */
-const SUPA_URL = 'YOUR_SUPABASE_URL';
-const SUPA_KEY = 'YOUR_SUPABASE_ANON_KEY';
-
+const SUPA_URL      = 'https://bromucnvbkcskmjnxxqr.supabase.co';       // e.g. https://xyzabcdef.supabase.co
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb211Y252Ymtjc2ttam54eHFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MjI3OTksImV4cCI6MjA5MDA5ODc5OX0.TaoHaRIaudfI48iprRvIBSzhHEZ79N9nnAtTdaG1eMI';  // starts with eyJ...
+   
 let _db = null;
 function getDB() {
   if (_db) return _db;
