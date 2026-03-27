@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Agent360 — Real Estate Investment Platform</title>
+<meta name="description" content="India's most intelligent fractional real estate investment platform. Own premium properties from ₹5,000. Earn monthly rental income."/>
+<meta name="keywords" content="fractional real estate india, property investment online, REIT india, rental income india, agent360"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://agent360.in"/>
+<meta property="og:title" content="Agent360 — Own Premium Property From ₹5,000"/>
+<meta property="og:description" content="India's smartest real estate investment platform. No brokers. No crores. Monthly rental income."/>
+<meta property="og:url" content="https://agent360.in"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Agent360","url":"https://agent360.in","description":"India's smartest fractional real estate investment platform","areaServed":"IN"}</script>
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+<!-- CountUp animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.min.js"></script>
+
+<style>
+/* ═══════════════════════════════════════════════════
+   AGENT360 — DARK LUXURY THEME
+   Obsidian + Burnished Gold + Electric Teal
+   "The Bloomberg Terminal of Real Estate"
+═══════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+:root {
+  --black:    #050709;
+  --dark-1:   #080C12;
+  --dark-2:   #0D1420;
+  --dark-3:   #121B2E;
+  --dark-4:   #18243A;
+  --dark-5:   #1F2E48;
+  --gold:     #C9982A;
+  --gold-lt:  #E8C06A;
+  --gold-dim: rgba(201,152,42,0.15);
+  --gold-glow:rgba(201,152,42,0.3);
+  --teal:     #0ECCB0;
+  --teal-dim: rgba(14,204,176,0.12);
+  --teal-glow:rgba(14,204,176,0.25);
+  --red:      #FF4B4B;
+  --red-dim:  rgba(255,75,75,0.12);
+  --text:     #E8EEF8;
+  --text-2:   #9BACC4;
+  --text-3:   #5A6E8A;
+  --border:   rgba(255,255,255,0.06);
+  --border-2: rgba(255,255,255,0.1);
+  --r:        14px;
+  --r-lg:     20px;
+  --r-xl:     28px;
+  --sh-gold:  0 0 40px rgba(201,152,42,0.2);
+  --sh-teal:  0 0 40px rgba(14,204,176,0.15);
+  --sh-dark:  0 24px 80px rgba(0,0,0,0.6);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:var(--black);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--dark-1);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;}
+img{max-width:100%;display:block;}
+
+/* Cursor glow */
+.cursor-glow{
+  position:fixed;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,152,42,0.06) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+  transform:translate(-50%,-50%);
+  transition:opacity .3s;
+}
+
+/* ── NOISE GRAIN ── */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.6;
+}
+
+/* ── UTILS ── */
+.serif{font-family:'Cormorant Garamond',Georgia,serif;}
+.container{max-width:1200px;margin:0 auto;padding:0 5%;}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+}
+.tag::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,3.6rem);
+  font-weight:700;line-height:1.08;
+  letter-spacing:-.5px;margin-bottom:16px;
+}
+.sec-sub{font-size:.95rem;color:var(--text-2);max-width:520px;line-height:1.75;font-weight:300;}
+.sec-head{margin-bottom:56px;}
+.sec-head.c{text-align:center;}
+.sec-head.c .sec-sub{margin:0 auto;}
+.sec-head.split{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 26px;border-radius:50px;border:none;
+  font-size:.875rem;font-weight:600;letter-spacing:.3px;
+  cursor:pointer;transition:all .25s ease;white-space:nowrap;
+  position:relative;overflow:hidden;
+}
+.btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.1) 50%,transparent 60%);
+  transform:translateX(-100%);transition:transform .5s;
+}
+.btn:hover::before{transform:translateX(100%);}
+
+.btn-lg{font-size:.95rem;padding:15px 32px;}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),#A87020);
+  color:#000;font-weight:700;
+  box-shadow:0 4px 24px var(--gold-glow);
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--gold-glow);}
+.btn-outline{
+  background:transparent;
+  border:1px solid rgba(201,152,42,0.4);
+  color:var(--gold-lt);
+}
+.btn-outline:hover{border-color:var(--gold);background:var(--gold-dim);}
+.btn-teal{
+  background:linear-gradient(135deg,var(--teal),#08A890);
+  color:#000;font-weight:700;
+  box-shadow:0 4px 24px var(--teal-glow);
+}
+.btn-teal:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--teal-glow);}
+.btn-ghost{
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--border-2);color:var(--text-2);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.1);color:var(--text);}
+
+/* ── NAVBAR ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  padding:18px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,7,9,.85);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--border);
+  transition:all .3s;
+}
+nav.scrolled{
+  padding:14px 5%;
+  background:rgba(5,7,9,.95);
+  border-bottom-color:rgba(201,152,42,.15);
+  box-shadow:0 8px 32px rgba(0,0,0,.5);
+}
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:700;
+  letter-spacing:-.3px;
+  background:linear-gradient(135deg,#fff 30%,var(--gold-lt));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.nav-pill{
+  display:flex;gap:4px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  border-radius:50px;padding:4px 6px;
+}
+.nav-pill a{
+  padding:8px 18px;border-radius:50px;
+  font-size:.8rem;font-weight:500;color:var(--text-2);
+  transition:all .2s;
+}
+.nav-pill a:hover,.nav-pill a.active{
+  background:var(--gold-dim);color:var(--gold-lt);
+}
+.nav-right{display:flex;gap:10px;align-items:center;}
+.nav-ticker{
+  display:flex;align-items:center;gap:6px;
+  font-size:.72rem;color:var(--text-3);
+  padding:6px 12px;
+  background:var(--dark-3);border-radius:8px;
+  border:1px solid var(--border);
+}
+.nav-ticker .tv{font-weight:700;color:var(--teal);}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;}
+.ham span{display:block;width:22px;height:1.5px;background:var(--text);border-radius:2px;transition:all .3s;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  padding:120px 5% 80px;
+}
+
+/* Animated mesh background */
+.hero-mesh{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%,rgba(201,152,42,.08) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 80%,rgba(14,204,176,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 20%,rgba(255,255,255,.02) 0%,transparent 60%);
+}
+/* Grid lines */
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:radial-gradient(ellipse 100% 100% at 50% 50%,black 0%,transparent 80%);
+  mask-image:radial-gradient(ellipse 100% 100% at 50% 50%,black 0%,transparent 80%);
+}
+/* Floating orbs */
+.orb{
+  position:absolute;border-radius:50%;filter:blur(80px);
+  animation:orbFloat 12s ease-in-out infinite;pointer-events:none;z-index:0;
+}
+.orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(201,152,42,.12),transparent 70%);top:-100px;right:-100px;animation-delay:0s;}
+.orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(14,204,176,.08),transparent 70%);bottom:-80px;left:-60px;animation-delay:-5s;}
+.orb-3{width:300px;height:300px;background:radial-gradient(circle,rgba(120,80,200,.06),transparent 70%);top:40%;left:40%;animation-delay:-9s;}
+@keyframes orbFloat{
+  0%,100%{transform:translate(0,0) scale(1);}
+  33%{transform:translate(30px,-40px) scale(1.1);}
+  66%{transform:translate(-20px,25px) scale(0.9);}
+}
+
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;width:100%;max-width:1200px;margin:0 auto;
+}
+.hero-left{}
+
+/* Animated badge */
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(201,152,42,.08);
+  border:1px solid rgba(201,152,42,.25);
+  border-radius:50px;padding:8px 18px;
+  font-size:.72rem;font-weight:600;color:var(--gold-lt);
+  letter-spacing:1px;text-transform:uppercase;
+  margin-bottom:28px;
+  animation:fadeUp .7s ease both;
+}
+.live-dot{
+  width:7px;height:7px;background:var(--teal);
+  border-radius:50%;flex-shrink:0;
+  box-shadow:0 0 10px var(--teal);
+  animation:livePulse 1.5s infinite;
+}
+@keyframes livePulse{
+  0%,100%{opacity:1;box-shadow:0 0 10px var(--teal);}
+  50%{opacity:.5;box-shadow:0 0 4px var(--teal);}
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  font-weight:700;line-height:1.0;letter-spacing:-1.5px;
+  margin-bottom:24px;
+  animation:fadeUp .7s .08s ease both;
+}
+.hero h1 .line-gold{
+  display:block;font-style:italic;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-lt) 50%,#F0D080 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero h1 .line-white{display:block;color:#fff;}
+.hero h1 .line-dim{display:block;color:rgba(255,255,255,.4);}
+
+.hero-desc{
+  font-size:1.05rem;color:var(--text-2);max-width:460px;
+  margin-bottom:38px;line-height:1.8;font-weight:300;
+  animation:fadeUp .7s .16s ease both;
+}
+.hero-desc strong{color:var(--text);font-weight:500;}
+
+.hero-actions{
+  display:flex;gap:12px;flex-wrap:wrap;
+  margin-bottom:52px;
+  animation:fadeUp .7s .24s ease both;
+}
+
+/* Live metrics strip */
+.hero-metrics{
+  display:flex;gap:0;
+  background:var(--dark-3);
+  border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  animation:fadeUp .7s .32s ease both;
+}
+.hm-item{
+  flex:1;padding:16px 20px;
+  border-right:1px solid var(--border);
+  position:relative;
+}
+.hm-item:last-child{border-right:none;}
+.hm-item::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.hm-item:hover::after{opacity:1;}
+.hm-label{font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-3);margin-bottom:4px;}
+.hm-value{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:-.5px;line-height:1;}
+.hm-change{font-size:.72rem;margin-top:3px;}
+.hm-up{color:var(--teal);}
+.hm-dn{color:var(--red);}
+
+/* Hero right - 3D card display */
+.hero-right{
+  position:relative;
+  animation:fadeUp .8s .1s ease both;
+}
+.cards-3d{
+  position:relative;height:520px;
+  transform-style:preserve-3d;perspective:1000px;
+}
+.card-3d{
+  position:absolute;background:var(--dark-3);
+  border:1px solid var(--border-2);
+  border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:var(--sh-dark);
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.card-3d:hover{box-shadow:var(--sh-dark),0 0 60px rgba(201,152,42,.15);}
+
+/* Main large card */
+.card-main{
+  width:100%;bottom:0;
+  animation:card1Float 8s ease-in-out infinite;
+}
+/* Secondary card */
+.card-sec{
+  width:200px;top:0;right:-10px;
+  animation:card2Float 8s ease-in-out infinite;
+  transform:rotate(3deg);
+}
+.card-sec:hover{transform:rotate(0deg) translateY(-6px);}
+
+@keyframes card1Float{
+  0%,100%{transform:translateY(0) rotate(-.5deg);}
+  50%{transform:translateY(-16px) rotate(.5deg);}
+}
+@keyframes card2Float{
+  0%,100%{transform:translateY(0) rotate(3deg);}
+  50%{transform:translateY(12px) rotate(2deg);}
+}
+
+/* Property card interior */
+.c3-img{
+  height:200px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#2A3A28 0%,#1A2A18 60%,#0D180B 100%);
+}
+.c3-img-alt{background:linear-gradient(160deg,#2A2838 0%,#1A1828 60%,#0D0B18 100%);}
+.c3-buildings{
+  position:absolute;bottom:0;left:0;right:0;
+  display:flex;align-items:flex-end;justify-content:center;
+  gap:4px;padding:0 16px;z-index:1;
+}
+.c3b{border-radius:2px 2px 0 0;}
+/* Window lights */
+.c3b::after{
+  content:'';position:absolute;inset:8px 6px;
+  background:repeating-linear-gradient(
+    180deg,
+    rgba(255,220,100,.3) 0px,rgba(255,220,100,.3) 3px,
+    transparent 3px,transparent 9px
+  ),repeating-linear-gradient(
+    90deg,
+    rgba(255,220,100,.2) 0px,rgba(255,220,100,.2) 3px,
+    transparent 3px,transparent 10px
+  );
+}
+.c3-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(5,7,9,.9) 100%);
+}
+.c3-chip{
+  position:absolute;top:12px;left:12px;z-index:2;
+  font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 11px;border-radius:50px;
+}
+.chip-gold{background:var(--gold);color:#000;}
+.chip-teal{background:var(--teal);color:#000;}
+.chip-dark{background:rgba(0,0,0,.7);color:#fff;border:1px solid var(--border-2);}
+
+.c3-yield{
+  position:absolute;top:12px;right:12px;z-index:2;
+  background:rgba(5,7,9,.85);
+  border:1px solid rgba(14,204,176,.3);
+  border-radius:10px;padding:8px 12px;text-align:center;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.c3y-v{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--teal);line-height:1;}
+.c3y-l{font-size:.58rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+
+.c3-body{padding:18px 20px;}
+.c3-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;margin-bottom:3px;color:#fff;}
+.c3-loc{font-size:.74rem;color:var(--text-3);margin-bottom:14px;}
+.c3-stats{display:flex;gap:16px;}
+.c3s-l{font-size:.6rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;}
+.c3s-v{font-size:.9rem;font-weight:600;color:var(--gold-lt);}
+
+/* Floating info chips */
+.float-chip{
+  position:absolute;z-index:3;
+  background:var(--dark-3);
+  border:1px solid var(--border-2);
+  border-radius:12px;padding:12px 16px;
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+}
+.fc-1{top:40px;left:-30px;animation:fcFloat1 6s ease-in-out infinite;}
+.fc-2{bottom:160px;left:-20px;animation:fcFloat2 5s ease-in-out infinite;}
+@keyframes fcFloat1{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes fcFloat2{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+.fc-label{font-size:.62rem;color:var(--text-3);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.fc-value{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--teal);line-height:1;}
+.fc-sub{font-size:.65rem;color:var(--text-3);margin-top:2px;}
+
+/* ── TICKER ── */
+.ticker-wrap{
+  background:var(--dark-2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:12px 0;overflow:hidden;position:relative;
+}
+.ticker-wrap::before,.ticker-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;
+}
+.ticker-wrap::before{left:0;background:linear-gradient(to right,var(--dark-2),transparent);}
+.ticker-wrap::after{right:0;background:linear-gradient(to left,var(--dark-2),transparent);}
+.ticker-track{display:flex;gap:48px;width:max-content;animation:tickerRun 40s linear infinite;}
+@keyframes tickerRun{from{transform:translateX(0);}to{transform:translateX(-50%);}  }
+.ticker-item{display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:.8rem;}
+.t-name{color:var(--text-3);font-weight:500;}
+.t-price{font-weight:700;color:var(--text);}
+.t-chg{font-size:.72rem;padding:2px 8px;border-radius:4px;font-weight:600;}
+.t-up{color:var(--teal);background:var(--teal-dim);}
+.t-dn{color:var(--red);background:var(--red-dim);}
+
+/* ── SECTIONS ── */
+.sec{padding:100px 5%;}
+.sec-alt{background:var(--dark-1);}
+.sec-dark{background:var(--dark-2);}
+
+/* ── ANIMATED COUNTERS SECTION ── */
+.counters-sec{
+  background:linear-gradient(135deg,var(--dark-2) 0%,var(--dark-3) 100%);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:60px 5%;
+}
+.counters-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.counter-item{
+  text-align:center;padding:0 32px;
+  border-right:1px solid var(--border);
+  position:relative;
+}
+.counter-item::after{
+  content:'';position:absolute;bottom:0;left:20%;right:20%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
+}
+.counter-item:last-child{border-right:none;}
+.ci-prefix{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);}
+.ci-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.2rem;font-weight:700;
+  color:#fff;letter-spacing:-2px;line-height:1;
+  display:inline;
+}
+.ci-suffix{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);}
+.ci-label{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--text-3);margin-top:8px;}
+.ci-sub{font-size:.78rem;color:var(--teal);margin-top:3px;}
+
+/* ── HOW IT WORKS ── */
+.how-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:24px;position:relative;
+}
+.how-line{
+  position:absolute;top:52px;left:12.5%;right:12.5%;height:1px;
+  background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--teal),var(--gold-dim));
+  animation:linePulse 3s ease-in-out infinite;
+}
+@keyframes linePulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+.how-step{text-align:center;position:relative;}
+.how-num{
+  width:104px;height:104px;margin:0 auto 22px;border-radius:50%;
+  background:var(--dark-3);
+  border:1px solid var(--border-2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:700;color:var(--gold);
+  position:relative;z-index:1;
+  transition:all .35s;
+  box-shadow:0 0 0 0 var(--gold-glow);
+}
+.how-step:hover .how-num{
+  background:var(--gold-dim);
+  border-color:var(--gold);
+  box-shadow:0 0 0 8px rgba(201,152,42,.05),var(--sh-gold);
+  transform:scale(1.06);
+}
+.how-step h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#fff;}
+.how-step p{font-size:.84rem;color:var(--text-2);line-height:1.7;}
+
+/* ── PROPERTY LISTINGS ── */
+.listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.listing{
+  background:var(--dark-3);border-radius:var(--r-xl);overflow:hidden;
+  border:1px solid var(--border);
+  transition:transform .35s,border-color .35s,box-shadow .35s;
+  cursor:pointer;position:relative;
+}
+.listing::before{
+  content:'';position:absolute;inset:0;border-radius:var(--r-xl);
+  background:linear-gradient(135deg,rgba(201,152,42,.05),transparent 60%);
+  opacity:0;transition:opacity .35s;z-index:0;pointer-events:none;
+}
+.listing:hover{transform:translateY(-8px);border-color:rgba(201,152,42,.3);box-shadow:0 24px 60px rgba(0,0,0,.5),var(--sh-gold);}
+.listing:hover::before{opacity:1;}
+.l-img{height:200px;position:relative;overflow:hidden;z-index:1;}
+.l-img img,.l-img-bg{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s ease;
+}
+.listing:hover .l-img-bg{transform:scale(1.06);}
+.l-img-bg{background-size:cover;background-position:center;}
+.l-badge{
+  position:absolute;top:12px;left:12px;z-index:2;
+  font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 12px;border-radius:50px;
+}
+.b-hot{background:var(--gold);color:#000;}
+.b-new{background:var(--teal);color:#000;}
+.b-end{background:rgba(255,75,75,.9);color:#fff;}
+.l-yield{
+  position:absolute;top:12px;right:12px;z-index:2;
+  background:rgba(5,7,9,.8);
+  border:1px solid rgba(14,204,176,.3);
+  border-radius:10px;padding:7px 11px;text-align:center;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.ly{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--teal);line-height:1;}
+.ll{font-size:.56rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.5px;}
+.l-body{padding:20px;position:relative;z-index:1;}
+.l-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;margin-bottom:3px;color:#fff;}
+.l-city{font-size:.74rem;color:var(--text-3);margin-bottom:14px;}
+.l-meta{display:flex;gap:0;margin-bottom:16px;}
+.lm{flex:1;}
+.lm-l{font-size:.6rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;}
+.lm-v{font-size:.88rem;font-weight:600;color:var(--text);}
+.prog-wrap{margin-bottom:16px;}
+.prog-top{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-3);margin-bottom:6px;}
+.prog-track{height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;}
+.prog-fill{
+  height:100%;border-radius:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-lt));
+  transition:width 1s ease;
+  position:relative;overflow:hidden;
+}
+.prog-fill::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:shimmer 2s infinite;
+}
+@keyframes shimmer{from{transform:translateX(-100%);}to{transform:translateX(100%);}}
+.l-btn{
+  width:100%;padding:12px;border-radius:10px;border:none;
+  background:linear-gradient(135deg,var(--gold),#A87020);
+  color:#000;font-size:.875rem;font-weight:700;
+  cursor:pointer;transition:all .22s;
+  position:relative;overflow:hidden;
+}
+.l-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px var(--gold-glow);}
+
+/* ── CALCULATOR ── */
+.calc-wrapper{
+  background:var(--dark-3);border-radius:var(--r-xl);
+  border:1px solid var(--border);overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,.5);
+}
+.calc-tabs{
+  display:flex;background:var(--dark-2);
+  border-bottom:1px solid var(--border);
+}
+.calc-tab{
+  flex:1;padding:16px;border:none;background:none;
+  font-size:.8rem;font-weight:600;letter-spacing:.5px;
+  color:var(--text-3);cursor:pointer;
+  border-bottom:2px solid transparent;
+  transition:all .2s;text-transform:uppercase;
+}
+.calc-tab.on{color:var(--gold);border-bottom-color:var(--gold);}
+.calc-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;
+}
+.calc-left{padding:36px 40px;border-right:1px solid var(--border);}
+.calc-right{padding:36px 40px;background:var(--dark-2);}
+
+.cg{margin-bottom:28px;}
+.cg label{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-3);margin-bottom:14px;
+}
+.cg label span{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:700;color:var(--gold-lt);letter-spacing:-.3px;
+}
+input[type=range]{
+  width:100%;height:3px;cursor:pointer;
+  background:linear-gradient(90deg,var(--gold) var(--pct,50%),rgba(255,255,255,.1) var(--pct,50%));
+  border:none;outline:none;border-radius:2px;
+  -webkit-appearance:none;appearance:none;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--gold);cursor:pointer;
+  box-shadow:0 0 10px var(--gold-glow);
+  transition:transform .15s;
+}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);}
+.c-hint{font-size:.68rem;color:var(--text-3);margin-top:6px;}
+
+/* Result panel */
+.res-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:2px;color:var(--text-3);margin-bottom:12px;}
+.res-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.4rem;font-weight:700;color:var(--teal);
+  letter-spacing:-2px;line-height:1;margin-bottom:6px;
+}
+.res-sub{font-size:.82rem;color:var(--text-3);margin-bottom:32px;}
+.res-items{display:flex;flex-direction:column;gap:0;margin-bottom:28px;}
+.ri{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;border-bottom:1px solid var(--border);
+}
+.ri:last-child{border-bottom:none;}
+.ri-l{font-size:.8rem;color:var(--text-2);}
+.ri-v{font-size:.9rem;font-weight:600;}
+.ri-gold{color:var(--gold-lt);}
+.ri-teal{color:var(--teal);}
+.ri-white{color:#fff;}
+
+/* Donut chart */
+.donut-wrap{display:flex;align-items:center;gap:24px;margin-bottom:28px;}
+.donut{position:relative;width:120px;height:120px;flex-shrink:0;}
+.donut svg{transform:rotate(-90deg);}
+.donut-label{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+}
+.dl-v{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#fff;line-height:1;}
+.dl-l{font-size:.58rem;color:var(--text-3);margin-top:2px;}
+.donut-legend{display:flex;flex-direction:column;gap:8px;}
+.dl-item{display:flex;align-items:center;gap:8px;font-size:.76rem;color:var(--text-2);}
+.dl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+/* ── PORTFOLIO ── */
+.port-ui{
+  background:var(--dark-3);border-radius:var(--r-xl);
+  border:1px solid var(--border);overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.4);
+}
+.port-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 28px;background:var(--dark-2);
+  border-bottom:1px solid var(--border);
+}
+.port-bar h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;font-weight:700;color:#fff;
+}
+.port-live{display:flex;align-items:center;gap:8px;font-size:.74rem;color:var(--teal);font-weight:600;}
+.port-live::before{content:'';width:7px;height:7px;background:var(--teal);border-radius:50%;box-shadow:0 0 10px var(--teal);animation:livePulse 1.5s infinite;flex-shrink:0;}
+.port-sum{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--border);
+}
+.ps{padding:20px 28px;border-right:1px solid var(--border);}
+.ps:last-child{border-right:none;}
+.ps-l{font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-3);margin-bottom:6px;}
+.ps-v{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:#fff;line-height:1;}
+.ps-c{font-size:.74rem;margin-top:5px;}
+.up{color:var(--teal);}
+.dn{color:var(--red);}
+.neu{color:var(--text-3);}
+
+.h-head{
+  display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1fr;
+  padding:10px 28px;
+  background:var(--dark-2);
+  font-size:.62rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-3);font-weight:600;
+}
+.h-row{
+  display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1fr;
+  padding:16px 28px;border-bottom:1px solid var(--border);
+  align-items:center;cursor:pointer;
+  transition:background .18s;
+}
+.h-row:last-child{border-bottom:none;}
+.h-row:hover{background:rgba(255,255,255,.02);}
+.h-prop{display:flex;align-items:center;gap:13px;}
+.h-icon{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;
+}
+.h-pn{font-weight:600;font-size:.84rem;color:#fff;}
+.h-pc{font-size:.68rem;color:var(--text-3);}
+.h-val{font-size:.84rem;font-weight:500;color:var(--text);}
+.pct{font-size:.68rem;padding:3px 9px;border-radius:6px;font-weight:700;}
+.pct-up{background:rgba(14,204,176,.12);color:var(--teal);}
+.pct-dn{background:rgba(255,75,75,.12);color:var(--red);}
+
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:24px;}
+.b-card{
+  background:var(--dark-3);border-radius:var(--r-xl);overflow:hidden;
+  border:1px solid var(--border);cursor:pointer;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.b-card:hover{transform:translateY(-6px);border-color:var(--border-2);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.b-thumb{height:168px;position:relative;overflow:hidden;}
+.b-card:first-child .b-thumb{height:210px;}
+.b-thumb-bg{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .5s;}
+.b-card:hover .b-thumb-bg{transform:scale(1.08);}
+.b-cat{
+  position:absolute;top:12px;left:12px;z-index:2;
+  font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 11px;border-radius:50px;
+}
+.bc-guide{background:var(--gold);color:#000;}
+.bc-market{background:var(--teal);color:#000;}
+.bc-tax{background:rgba(255,75,75,.9);color:#fff;}
+.b-body{padding:20px 22px;}
+.b-body h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.98rem;font-weight:700;margin-bottom:8px;
+  color:#fff;line-height:1.3;
+}
+.b-card:first-child .b-body h3{font-size:1.18rem;}
+.b-body p{font-size:.76rem;color:var(--text-2);line-height:1.65;margin-bottom:12px;}
+.b-meta{display:flex;align-items:center;gap:7px;font-size:.68rem;color:var(--text-3);}
+.b-sep{color:var(--text-3);}
+
+/* ── REVIEWS ── */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.rev-card{
+  background:var(--dark-3);border-radius:var(--r-xl);padding:28px;
+  border:1px solid var(--border);
+  transition:border-color .3s,box-shadow .3s;
+  position:relative;overflow:hidden;
+}
+.rev-card::before{
+  content:'"';
+  position:absolute;top:-10px;right:20px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:8rem;font-weight:700;color:var(--gold);
+  opacity:.08;line-height:1;pointer-events:none;
+}
+.rev-card:hover{border-color:rgba(201,152,42,.2);box-shadow:var(--sh-gold);}
+.stars{color:var(--gold);font-size:.88rem;letter-spacing:3px;margin-bottom:14px;}
+.rev-card blockquote{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.98rem;line-height:1.7;color:var(--text);margin-bottom:20px;
+}
+.rev-who{display:flex;align-items:center;gap:12px;}
+.rev-av{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.8rem;color:#000;
+}
+.rev-name{font-weight:600;font-size:.84rem;color:#fff;}
+.rev-loc{font-size:.7rem;color:var(--text-3);}
+.rev-tag{font-size:.68rem;color:var(--teal);font-weight:600;margin-top:2px;}
+
+/* ── NEWSLETTER ── */
+.nl-section{
+  background:linear-gradient(135deg,var(--dark-2),var(--dark-3));
+  position:relative;overflow:hidden;
+}
+.nl-bg-glow{
+  position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,152,42,.08),transparent 70%);
+  pointer-events:none;
+}
+.nl-wrap{max-width:640px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.nl-icon{font-size:3rem;margin-bottom:20px;animation:iconFloat 3s ease-in-out infinite;}
+@keyframes iconFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.nl-wrap h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.4rem;font-weight:700;margin-bottom:12px;
+  background:linear-gradient(135deg,#fff,var(--gold-lt));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.nl-wrap>p{color:var(--text-2);margin-bottom:30px;font-size:.94rem;}
+.nl-perks{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:28px;}
+.nl-perk{font-size:.74rem;color:var(--text-2);display:flex;align-items:center;gap:6px;}
+.nl-perk::before{content:'✓';color:var(--teal);font-weight:800;}
+.nl-form{display:flex;gap:10px;max-width:400px;margin:0 auto 14px;}
+.nl-in{
+  flex:1;padding:14px 18px;border-radius:50px;
+  border:1px solid var(--border-2);outline:none;
+  background:var(--dark-3);color:var(--text);
+  font-family:inherit;font-size:.875rem;
+  transition:border-color .2s,box-shadow .2s;
+}
+.nl-in:focus{border-color:var(--gold);box-shadow:0 0 20px var(--gold-dim);}
+.nl-in::placeholder{color:var(--text-3);}
+#nl-msg{font-size:.8rem;min-height:18px;}
+.nl-ok{color:var(--teal);font-weight:600;}
+.nl-err{color:var(--red);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--black);
+  border-top:1px solid var(--border);
+  padding:72px 5% 30px;
+}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px;}
+.ft-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:700;
+  background:linear-gradient(135deg,#fff,var(--gold-lt));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:14px;
+}
+.ft-brand p{font-size:.82rem;color:var(--text-3);line-height:1.75;max-width:255px;margin-bottom:20px;}
+.ft-socials{display:flex;gap:9px;}
+.ft-soc{
+  width:36px;height:36px;border-radius:9px;text-decoration:none;
+  background:var(--dark-3);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;color:var(--text-3);transition:all .2s;
+}
+.ft-soc:hover{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-lt);}
+.ft-col h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text-3);margin-bottom:16px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ft-col a{font-size:.82rem;color:rgba(255,255,255,.35);transition:color .2s;}
+.ft-col a:hover{color:var(--gold-lt);}
+.ft-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.ft-bottom p{font-size:.7rem;color:rgba(255,255,255,.2);}
+
+/* ── AUTH MODAL ── */
+.overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,.8);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.overlay.open{opacity:1;pointer-events:all;}
+.modal{
+  background:var(--dark-3);
+  border:1px solid var(--border-2);
+  border-radius:var(--r-xl);padding:40px;
+  width:92%;max-width:420px;
+  box-shadow:0 40px 80px rgba(0,0,0,.7),var(--sh-gold);
+  transform:scale(.95) translateY(12px);
+  transition:transform .3s;position:relative;overflow:hidden;
+}
+.modal::before{
+  content:'';position:absolute;top:-100px;right:-80px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,152,42,.06),transparent 70%);
+  pointer-events:none;
+}
+.overlay.open .modal{transform:scale(1) translateY(0);}
+.m-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px;}
+.m-hd h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:700;color:#fff;
+}
+.m-x{
+  background:var(--dark-4);border:1px solid var(--border);
+  border-radius:8px;color:var(--text-3);
+  font-size:1.1rem;cursor:pointer;
+  width:32px;height:32px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.m-x:hover{background:var(--dark-5);color:var(--text);}
+.m-tabs{
+  display:flex;background:var(--dark-2);
+  border-radius:10px;padding:4px;gap:4px;margin-bottom:24px;
+}
+.m-tab{
+  flex:1;padding:10px;border-radius:8px;border:none;
+  background:none;font-size:.875rem;font-weight:600;
+  color:var(--text-3);cursor:pointer;transition:all .2s;
+}
+.m-tab.on{
+  background:var(--gold-dim);color:var(--gold-lt);
+  border:1px solid rgba(201,152,42,.2);
+}
+.m-form{display:flex;flex-direction:column;gap:13px;}
+.m-in{
+  padding:14px 16px;border-radius:10px;
+  border:1px solid var(--border-2);outline:none;
+  background:var(--dark-2);color:var(--text);
+  font-family:inherit;font-size:.9rem;
+  transition:border-color .2s,box-shadow .2s;
+}
+.m-in:focus{border-color:var(--gold);box-shadow:0 0 20px var(--gold-dim);}
+.m-in::placeholder{color:var(--text-3);}
+.m-btn{
+  padding:15px;border-radius:10px;border:none;
+  background:linear-gradient(135deg,var(--gold),#A87020);
+  color:#000;font-size:.95rem;font-weight:700;
+  cursor:pointer;transition:all .22s;margin-top:4px;
+}
+.m-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--gold-glow);}
+.m-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+#auth-msg{font-size:.78rem;text-align:center;min-height:18px;}
+.a-ok{color:var(--teal);font-weight:600;}
+.a-err{color:var(--red);}
+.m-note{font-size:.72rem;color:var(--text-3);text-align:center;line-height:1.6;}
+.m-note a{color:var(--gold);}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--dark-4);color:var(--text);
+  border-radius:12px;padding:14px 20px;font-size:.84rem;z-index:999;
+  border:1px solid var(--border-2);
+  border-left:3px solid var(--gold);
+  transform:translateY(110px);opacity:0;
+  transition:all .4s cubic-bezier(.34,1.56,.64,1);
+  max-width:300px;box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-left.in{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-right.in{opacity:1;transform:translateX(0);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;padding:100px 5% 60px;}
+  .hero-right{display:none;}
+  .counters-grid{grid-template-columns:repeat(2,1fr);}
+  .counter-item{border-right:none;border-bottom:1px solid var(--border);padding:20px;}
+  .counter-item:nth-child(odd){border-right:1px solid var(--border);}
+  .how-grid{grid-template-columns:repeat(2,1fr);}
+  .how-line{display:none;}
+  .listings-grid{grid-template-columns:1fr 1fr;}
+  .blog-grid{grid-template-columns:1fr 1fr;}
+  .rev-grid{grid-template-columns:1fr 1fr;}
+  .calc-inner{grid-template-columns:1fr;}
+  .calc-right{border-top:1px solid var(--border);}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:36px;}
+  .port-sum{grid-template-columns:repeat(2,1fr);}
+  .h-head,.h-row{grid-template-columns:2fr 1fr 1fr;}
+  .h-head>span:nth-child(n+4),.h-row>*:nth-child(n+4){display:none;}
+}
+@media(max-width:640px){
+  .nav-pill{display:none;}
+  .ham{display:flex;}
+  .nav-pill.open{
+    display:flex;flex-direction:column;gap:0;
+    position:fixed;top:62px;left:0;right:0;
+    background:var(--dark-2);border-bottom:1px solid var(--border);
+    border-radius:0;padding:8px 0;z-index:299;
+  }
+  .nav-pill.open a{
+    display:block;padding:14px 5%;font-size:.95rem;
+    border-bottom:1px solid var(--border);border-radius:0;
+  }
+  .nav-pill.open a:last-child{border-bottom:none;}
+  .nav-right .btn-ghost{display:none;}
+  .hero{padding:100px 5% 60px;}
+  .hero h1{letter-spacing:-.5px;}
+  .hero-actions{flex-direction:column;}
+  .hero-actions .btn{width:100%;justify-content:center;}
+  .hero-metrics{flex-direction:column;gap:0;}
+  .hm-item{border-right:none;border-bottom:1px solid var(--border);}
+  .hm-item:last-child{border-bottom:none;}
+  .listings-grid,.blog-grid,.rev-grid,.how-grid{grid-template-columns:1fr;}
+  .ft-grid{grid-template-columns:1fr;}
+  .port-sum{grid-template-columns:1fr 1fr;}
+  .sec-head.split{flex-direction:column;align-items:flex-start;}
+  .nl-form{flex-direction:column;}
+  .modal{padding:28px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor glow effect -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ════ NAVBAR ════ -->
+<nav id="nav">
+  <div class="logo">Agent360</div>
+  <div class="nav-pill" id="navPill">
+    <a href="#how">How It Works</a>
+    <a href="#properties">Properties</a>
+    <a href="#calculator">Calculator</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#blog">Insights</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-ticker" id="navTicker">
+      <span>NIFTY</span>
+      <span class="tv">24,762 ▲</span>
+    </div>
+    <button class="btn btn-ghost" onclick="openAuth('login')" style="padding:9px 18px;font-size:.8rem">Log In</button>
+    <button class="btn btn-gold" onclick="openAuth('signup')" style="padding:9px 18px;font-size:.8rem">Start Investing</button>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="home">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="live-dot"></span>Live Platform · SEBI Registered · 48K+ Investors</div>
+      <h1>
+        <span class="line-dim">India's Smartest</span>
+        <span class="line-gold">Real Estate</span>
+        <span class="line-white">Investment.</span>
+      </h1>
+      <p class="hero-desc">
+        Own a fraction of <strong>Grade-A properties</strong> across India starting at just <strong>₹5,000</strong>. Earn monthly rental income. Watch your wealth grow.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-gold btn-lg" onclick="openAuth('signup')">🏛 Start Investing Free</button>
+        <a href="#calculator" class="btn btn-outline btn-lg">📐 Calculate Returns</a>
+      </div>
+
+      <!-- Live metrics -->
+      <div class="hero-metrics">
+        <div class="hm-item">
+          <div class="hm-label">Assets Under Mgmt</div>
+          <div class="hm-value">₹3,847 Cr</div>
+          <div class="hm-change hm-up">▲ +12% this year</div>
+        </div>
+        <div class="hm-item">
+          <div class="hm-label">Avg. Rental Yield</div>
+          <div class="hm-value">9.4%</div>
+          <div class="hm-change hm-up">▲ vs FD 7.1%</div>
+        </div>
+        <div class="hm-item">
+          <div class="hm-label">Investors Paid</div>
+          <div class="hm-value">48,241</div>
+          <div class="hm-change hm-up">▲ This month</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero right: 3D Property Cards -->
+    <div class="hero-right">
+      <div class="cards-3d">
+
+        <!-- Floating info chips -->
+        <div class="float-chip fc-1">
+          <div class="fc-label">Monthly Rental</div>
+          <div class="fc-value">₹2,640</div>
+          <div class="fc-sub">Paid on 1st of month</div>
+        </div>
+        <div class="float-chip fc-2">
+          <div class="fc-label">Avg Returns</div>
+          <div class="fc-value">11.4% p.a.</div>
+          <div class="fc-sub">Rental + Appreciation</div>
+        </div>
+
+        <!-- Secondary card -->
+        <div class="card-3d card-sec">
+          <div class="c3-img c3-img-alt" style="height:95px">
+            <div class="c3-overlay"></div>
+            <div class="c3-chip chip-teal" style="font-size:.52rem">Residential</div>
+          </div>
+          <div class="c3-body" style="padding:12px 14px">
+            <div class="c3-name" style="font-size:.88rem">Godrej Woods</div>
+            <div class="c3-loc">📍 Noida Sec-43</div>
+            <div class="c3-stats">
+              <div><div class="c3s-l">Yield</div><div class="c3s-v" style="font-size:.8rem">7.8%</div></div>
+              <div><div class="c3s-l">Min</div><div class="c3s-v" style="font-size:.8rem">₹5K</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main card -->
+        <div class="card-3d card-main">
+          <div class="c3-img">
+            <div class="c3-buildings">
+              <div class="c3b" style="width:26px;height:105px;background:rgba(255,255,255,.1);position:relative"></div>
+              <div class="c3b" style="width:40px;height:148px;background:rgba(255,255,255,.14);position:relative"></div>
+              <div class="c3b" style="width:34px;height:190px;background:rgba(255,255,255,.18);position:relative"></div>
+              <div class="c3b" style="width:38px;height:130px;background:rgba(255,255,255,.12);position:relative"></div>
+              <div class="c3b" style="width:24px;height:88px;background:rgba(255,255,255,.09);position:relative"></div>
+            </div>
+            <div class="c3-overlay"></div>
+            <div class="c3-chip chip-gold">Commercial</div>
+            <div class="c3-yield"><div class="c3y-v">9.2%</div><div class="c3y-l">Yield</div></div>
+          </div>
+          <div class="c3-body">
+            <div class="c3-name">Prestige Tech Park, Bengaluru</div>
+            <div class="c3-loc">📍 Whitefield · Grade A · Fully Occupied</div>
+            <div class="c3-stats">
+              <div><div class="c3s-l">Min Invest</div><div class="c3s-v">₹10,000</div></div>
+              <div><div class="c3s-l">Rental Yield</div><div class="c3s-v">9.2%</div></div>
+              <div><div class="c3s-l">Appreciation</div><div class="c3s-v">+7%/yr</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TICKER ════ -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- ════ COUNTERS ════ -->
+<div class="counters-sec">
+  <div class="counters-grid">
+    <div class="counter-item reveal">
+      <div><span class="ci-prefix">₹</span><span class="ci-num" id="c1">0</span><span class="ci-suffix">Cr+</span></div>
+      <div class="ci-label">Assets Managed</div>
+      <div class="ci-sub">↑ 12% year on year</div>
+    </div>
+    <div class="counter-item reveal">
+      <div><span class="ci-num" id="c2">0</span><span class="ci-suffix">K+</span></div>
+      <div class="ci-label">Active Investors</div>
+      <div class="ci-sub">Across 28 states</div>
+    </div>
+    <div class="counter-item reveal">
+      <div><span class="ci-num" id="c3">0</span><span class="ci-suffix">%</span></div>
+      <div class="ci-label">Average Annual Return</div>
+      <div class="ci-sub">Rental + Appreciation</div>
+    </div>
+    <div class="counter-item reveal">
+      <div><span class="ci-num" id="c4">0</span><span class="ci-suffix">+</span></div>
+      <div class="ci-label">Properties Listed</div>
+      <div class="ci-sub">Across 12 cities</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ HOW IT WORKS ════ -->
+<section class="sec sec-alt" id="how">
+  <div class="container">
+    <div class="sec-head c reveal">
+      <span class="tag">Process</span>
+      <h2 class="sec-title">From zero to property owner<br/>in four steps</h2>
+      <p class="sec-sub">No real estate knowledge needed. We've made investing as simple as ordering online.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-line"></div>
+      <div class="how-step reveal">
+        <div class="how-num">01</div>
+        <h3>Create Your Account</h3>
+        <p>Sign up free. Complete Aadhaar-based digital KYC in under 5 minutes. No branch visit.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-num">02</div>
+        <h3>Browse Properties</h3>
+        <p>Explore SEBI-approved Grade-A commercial and residential properties across 12 cities.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-num">03</div>
+        <h3>Invest From ₹5,000</h3>
+        <p>Buy fractional ownership. Your name is registered on the property documents. 100% legal.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-num">04</div>
+        <h3>Earn Every Month</h3>
+        <p>Rental income credited on the 1st. Track appreciation in real-time on your dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROPERTIES ════ -->
+<section class="sec" id="properties">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <span class="tag">Live Listings</span>
+        <h2 class="sec-title">Premium properties<br/>open for investment</h2>
+      </div>
+      <button class="btn btn-outline" onclick="openAuth('signup')">View All 120+ Properties →</button>
+    </div>
+    <div class="listings-grid">
+      <div class="listing reveal">
+        <div class="l-img">
+          <div class="l-img-bg" style="height:200px;background:linear-gradient(160deg,#1A2E1A,#0D1A0D)">
+            <div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:0 20px;z-index:1">
+              <div style="width:22px;height:90px;background:rgba(255,255,255,.1);border-radius:2px 2px 0 0"></div>
+              <div style="width:34px;height:130px;background:rgba(255,255,255,.15);border-radius:2px 2px 0 0"></div>
+              <div style="width:28px;height:160px;background:rgba(255,255,255,.18);border-radius:2px 2px 0 0"></div>
+              <div style="width:32px;height:110px;background:rgba(255,255,255,.13);border-radius:2px 2px 0 0"></div>
+              <div style="width:20px;height:80px;background:rgba(255,255,255,.09);border-radius:2px 2px 0 0"></div>
+            </div>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(5,7,9,.8));z-index:2"></div>
+          </div>
+          <div class="l-badge b-hot">🔥 Hot</div>
+          <div class="l-yield"><div class="ly">9.8%</div><div class="ll">Yield</div></div>
+        </div>
+        <div class="l-body">
+          <div class="l-name">DLF Cyber City Tower B</div>
+          <div class="l-city">📍 Gurugram, Haryana · Commercial</div>
+          <div class="l-meta">
+            <div class="lm"><div class="lm-l">Min Invest</div><div class="lm-v">₹10,000</div></div>
+            <div class="lm"><div class="lm-l">Total Value</div><div class="lm-v">₹48 Cr</div></div>
+            <div class="lm"><div class="lm-l">Occupancy</div><div class="lm-v">100%</div></div>
+          </div>
+          <div class="prog-wrap"><div class="prog-top"><span>Funding Progress</span><span style="color:var(--gold)">87% Filled</span></div><div class="prog-track"><div class="prog-fill" data-width="87" style="width:0"></div></div></div>
+          <button class="l-btn" onclick="openAuth('signup')">Invest Now →</button>
+        </div>
+      </div>
+
+      <div class="listing reveal">
+        <div class="l-img">
+          <div class="l-img-bg" style="height:200px;background:linear-gradient(160deg,#1A2A2E,#0D181A)">
+            <div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:0 20px;z-index:1">
+              <div style="width:28px;height:100px;background:rgba(255,255,255,.1);border-radius:2px 2px 0 0"></div>
+              <div style="width:20px;height:70px;background:rgba(255,255,255,.08);border-radius:2px 2px 0 0"></div>
+              <div style="width:36px;height:140px;background:rgba(255,255,255,.16);border-radius:2px 2px 0 0"></div>
+              <div style="width:24px;height:90px;background:rgba(255,255,255,.11);border-radius:2px 2px 0 0"></div>
+              <div style="width:30px;height:115px;background:rgba(255,255,255,.13);border-radius:2px 2px 0 0"></div>
+            </div>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(5,7,9,.8));z-index:2"></div>
+          </div>
+          <div class="l-badge b-new">✨ New</div>
+          <div class="l-yield"><div class="ly">7.4%</div><div class="ll">Yield</div></div>
+        </div>
+        <div class="l-body">
+          <div class="l-name">Sobha Dream Acres</div>
+          <div class="l-city">📍 Panathur, Bengaluru · Residential</div>
+          <div class="l-meta">
+            <div class="lm"><div class="lm-l">Min Invest</div><div class="lm-v">₹5,000</div></div>
+            <div class="lm"><div class="lm-l">Total Value</div><div class="lm-v">₹22 Cr</div></div>
+            <div class="lm"><div class="lm-l">Occupancy</div><div class="lm-v">96%</div></div>
+          </div>
+          <div class="prog-wrap"><div class="prog-top"><span>Funding Progress</span><span style="color:var(--gold)">34% Filled</span></div><div class="prog-track"><div class="prog-fill" data-width="34" style="width:0"></div></div></div>
+          <button class="l-btn" onclick="openAuth('signup')">Invest Now →</button>
+        </div>
+      </div>
+
+      <div class="listing reveal">
+        <div class="l-img">
+          <div class="l-img-bg" style="height:200px;background:linear-gradient(160deg,#1E1A2A,#0D0B18)">
+            <div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:0 14px;z-index:1">
+              <div style="width:24px;height:85px;background:rgba(255,255,255,.09);border-radius:2px 2px 0 0"></div>
+              <div style="width:38px;height:155px;background:rgba(255,255,255,.17);border-radius:2px 2px 0 0"></div>
+              <div style="width:30px;height:120px;background:rgba(255,255,255,.14);border-radius:2px 2px 0 0"></div>
+              <div style="width:42px;height:170px;background:rgba(255,255,255,.2);border-radius:2px 2px 0 0"></div>
+              <div style="width:26px;height:95px;background:rgba(255,255,255,.11);border-radius:2px 2px 0 0"></div>
+            </div>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(5,7,9,.8));z-index:2"></div>
+          </div>
+          <div class="l-badge b-end">⚡ Closing Soon</div>
+          <div class="l-yield"><div class="ly">10.2%</div><div class="ll">Yield</div></div>
+        </div>
+        <div class="l-body">
+          <div class="l-name">Hiranandani Business Park</div>
+          <div class="l-city">📍 Powai, Mumbai · Mixed Use</div>
+          <div class="l-meta">
+            <div class="lm"><div class="lm-l">Min Invest</div><div class="lm-v">₹25,000</div></div>
+            <div class="lm"><div class="lm-l">Total Value</div><div class="lm-v">₹120 Cr</div></div>
+            <div class="lm"><div class="lm-l">Occupancy</div><div class="lm-v">99%</div></div>
+          </div>
+          <div class="prog-wrap"><div class="prog-top"><span>Funding Progress</span><span style="color:var(--red)">96% — Almost Gone!</span></div><div class="prog-track"><div class="prog-fill" data-width="96" style="width:0"></div></div></div>
+          <button class="l-btn" onclick="openAuth('signup')">Join Waitlist →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CALCULATOR ════ -->
+<section class="sec sec-dark" id="calculator">
+  <div class="container">
+    <div class="sec-head c reveal" style="margin-bottom:40px">
+      <span class="tag">ROI Calculator</span>
+      <h2 class="sec-title" style="color:#fff">See your money work harder</h2>
+      <p class="sec-sub" style="color:var(--text-2);margin:0 auto">Rental income + property appreciation = extraordinary returns.</p>
+    </div>
+    <div class="calc-wrapper reveal">
+      <div class="calc-inner">
+        <div class="calc-left">
+          <div class="cg">
+            <label>Investment Amount <span>₹<span id="cAmtV">1,00,000</span></span></label>
+            <input type="range" id="cAmt" min="5000" max="5000000" step="5000" value="100000" oninput="calcRE(this)"/>
+            <div class="c-hint">Minimum ₹5,000 · Maximum ₹50 Lakh</div>
+          </div>
+          <div class="cg">
+            <label>Annual Rental Yield <span><span id="cYieldV">9.0</span>% p.a.</span></label>
+            <input type="range" id="cYield" min="4" max="14" step="0.2" value="9" oninput="calcRE(this)"/>
+            <div class="c-hint">Platform average: 9.4% · Historical range: 6%–12%</div>
+          </div>
+          <div class="cg">
+            <label>Property Appreciation <span><span id="cAppV">7.0</span>% p.a.</span></label>
+            <input type="range" id="cApp" min="2" max="15" step="0.5" value="7" oninput="calcRE(this)"/>
+            <div class="c-hint">Tier 1 city average: 6%–9% annually</div>
+          </div>
+          <div class="cg">
+            <label>Holding Period <span><span id="cYrsV">5</span> years</span></label>
+            <input type="range" id="cYrs" min="1" max="25" step="1" value="5" oninput="calcRE(this)"/>
+            <div class="c-hint">Compounding accelerates after year 3</div>
+          </div>
+          <button class="btn btn-gold btn-lg" onclick="openAuth('signup')" style="width:100%;margin-top:8px">🏛 Start With This Investment →</button>
+        </div>
+        <div class="calc-right">
+          <div class="res-lbl">Total Portfolio Value at Exit</div>
+          <div class="res-num" id="reTotal">₹1.72L</div>
+          <div class="res-sub" id="reSub">Invested ₹1L · Total gains ₹72K (+72%)</div>
+
+          <!-- Donut chart -->
+          <div class="donut-wrap">
+            <div class="donut">
+              <svg width="120" height="120" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="16"/>
+                <circle id="donutInv" cx="60" cy="60" r="48" fill="none" stroke="var(--gold)" stroke-width="16"
+                  stroke-dasharray="0 302" stroke-linecap="round" style="transition:stroke-dasharray .8s ease"/>
+                <circle id="donutRen" cx="60" cy="60" r="48" fill="none" stroke="var(--teal)" stroke-width="16"
+                  stroke-dasharray="0 302" stroke-dashoffset="0" stroke-linecap="round" style="transition:all .8s ease"/>
+                <circle id="donutApp" cx="60" cy="60" r="48" fill="none" stroke="#E8C97A" stroke-width="16"
+                  stroke-dasharray="0 302" stroke-dashoffset="0" stroke-linecap="round" style="transition:all .8s ease"/>
+              </svg>
+              <div class="donut-label"><div class="dl-v" id="donutPct">72%</div><div class="dl-l">Returns</div></div>
+            </div>
+            <div class="donut-legend">
+              <div class="dl-item"><div class="dl-dot" style="background:var(--gold)"></div>Invested Amount</div>
+              <div class="dl-item"><div class="dl-dot" style="background:var(--teal)"></div>Rental Income</div>
+              <div class="dl-item"><div class="dl-dot" style="background:#E8C97A"></div>Appreciation</div>
+            </div>
+          </div>
+
+          <div class="res-items">
+            <div class="ri"><span class="ri-l">Monthly Rental Income</span><span class="ri-v ri-teal" id="reMonthly">₹750/mo</span></div>
+            <div class="ri"><span class="ri-l">Total Rental (all years)</span><span class="ri-v ri-gold" id="reTotalRent">₹45K</span></div>
+            <div class="ri"><span class="ri-l">Property Value at Exit</span><span class="ri-v ri-white" id="rePropVal">₹1.40L</span></div>
+            <div class="ri"><span class="ri-l">Total Return %</span><span class="ri-v ri-teal" id="reRetPct">+72%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PORTFOLIO ════ -->
+<section class="sec" id="portfolio">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <span class="tag">Portfolio Tracker</span>
+        <h2 class="sec-title">All your properties,<br/>one dashboard</h2>
+      </div>
+      <button class="btn btn-gold" onclick="openAuth('signup')">View My Portfolio →</button>
+    </div>
+    <div class="port-ui reveal">
+      <div class="port-bar">
+        <h3>My Real Estate Portfolio</h3>
+        <div class="port-live">Live · Updated just now</div>
+      </div>
+      <div class="port-sum">
+        <div class="ps"><div class="ps-l">Total Invested</div><div class="ps-v">₹3.4L</div><div class="ps-c neu">4 properties</div></div>
+        <div class="ps"><div class="ps-l">Current Value</div><div class="ps-v">₹4.18L</div><div class="ps-c up">▲ +22.9%</div></div>
+        <div class="ps"><div class="ps-l">Monthly Rental</div><div class="ps-v">₹2,640</div><div class="ps-c up">▲ Paid 1st</div></div>
+        <div class="ps"><div class="ps-l">Avg Yield</div><div class="ps-v">9.3%</div><div class="ps-c up">▲ vs FD</div></div>
+      </div>
+      <div>
+        <div class="h-head"><span>Property</span><span>Invested</span><span>Current</span><span>Yield</span><span>P&L</span></div>
+        <div class="h-row">
+          <div class="h-prop"><div class="h-icon" style="background:rgba(201,152,42,.1);color:var(--gold)">🏢</div><div><div class="h-pn">DLF Cyber City</div><div class="h-pc">Gurugram, Haryana</div></div></div>
+          <div class="h-val">₹1,50,000</div><div class="h-val">₹1,92,600</div>
+          <div><span class="pct pct-up">9.8%</span></div>
+          <div class="h-val up">+₹42,600</div>
+        </div>
+        <div class="h-row">
+          <div class="h-prop"><div class="h-icon" style="background:rgba(14,204,176,.1);color:var(--teal)">🏘</div><div><div class="h-pn">Sobha Dream Acres</div><div class="h-pc">Bengaluru, KA</div></div></div>
+          <div class="h-val">₹80,000</div><div class="h-val">₹93,200</div>
+          <div><span class="pct pct-up">7.4%</span></div>
+          <div class="h-val up">+₹13,200</div>
+        </div>
+        <div class="h-row">
+          <div class="h-prop"><div class="h-icon" style="background:rgba(255,255,255,.06);color:var(--text-2)">🏗</div><div><div class="h-pn">Hiranandani Powai</div><div class="h-pc">Mumbai, MH</div></div></div>
+          <div class="h-val">₹75,000</div><div class="h-val">₹97,500</div>
+          <div><span class="pct pct-up">10.2%</span></div>
+          <div class="h-val up">+₹22,500</div>
+        </div>
+        <div class="h-row">
+          <div class="h-prop"><div class="h-icon" style="background:rgba(255,75,75,.1);color:var(--red)">🏠</div><div><div class="h-pn">Prestige Lakeside</div><div class="h-pc">Whitefield, Bengaluru</div></div></div>
+          <div class="h-val">₹35,000</div><div class="h-val">₹34,100</div>
+          <div><span class="pct pct-dn">−2.6%</span></div>
+          <div class="h-val dn">−₹900</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ BLOG ════ -->
+<section class="sec sec-alt" id="blog">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <span class="tag">Market Insights</span>
+        <h2 class="sec-title">Know before<br/>you invest</h2>
+      </div>
+      <button class="btn btn-outline">All Articles →</button>
+    </div>
+    <div class="blog-grid">
+      <div class="b-card reveal">
+        <div class="b-thumb">
+          <div class="b-thumb-bg" style="background:linear-gradient(135deg,#1A1208,#2A1E0A,#3A2C10)">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1">
+              <div style="font-size:4rem;opacity:.15">🏛</div>
+            </div>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(5,7,9,.7));z-index:2"></div>
+          </div>
+          <div class="b-cat bc-guide">Beginner Guide</div>
+        </div>
+        <div class="b-body">
+          <h3>Fractional Real Estate: How ₹10,000 Makes You a Property Owner in India</h3>
+          <p>Everything a first-time investor needs — how it works, SEBI regulations, tax treatment, and which cities deliver the best returns.</p>
+          <div class="b-meta"><span>Agent360 Research</span><span class="b-sep">·</span><span>8 min read</span></div>
+        </div>
+      </div>
+      <div class="b-card reveal">
+        <div class="b-thumb">
+          <div class="b-thumb-bg" style="background:linear-gradient(135deg,#081A14,#0D2A1E,#103A28)">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1">
+              <div style="font-size:3rem;opacity:.15">📊</div>
+            </div>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(5,7,9,.7));z-index:2"></div>
+          </div>
+          <div class="b-cat bc-market">Market Analysis</div>
+        </div>
+        <div class="b-body">
+          <h3>Top 5 Indian Cities for Real Estate Investment in 2025</h3>
+          <p>Data-driven analysis of Bengaluru, Pune, Hyderabad, Noida, and Mumbai property markets.</p>
+          <div class="b-meta"><span>Priya Mehta</span><span class="b-sep">·</span><span>6 min read</span></div>
+        </div>
+      </div>
+      <div class="b-card reveal">
+        <div class="b-thumb">
+          <div class="b-thumb-bg" style="background:linear-gradient(135deg,#1A0808,#2A100D,#3A1810)">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1">
+              <div style="font-size:3rem;opacity:.15">📋</div>
+            </div>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(5,7,9,.7));z-index:2"></div>
+          </div>
+          <div class="b-cat bc-tax">Tax & Legal</div>
+        </div>
+        <div class="b-body">
+          <h3>Rental Income Tax on Fractional Property — Complete 2025 Guide</h3>
+          <p>TDS, LTCG, STCG, and Section 24 deductions explained in plain English.</p>
+          <div class="b-meta"><span>CA Rohan Iyer</span><span class="b-sep">·</span><span>5 min read</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ REVIEWS ════ -->
+<section class="sec sec-dark" id="reviews">
+  <div class="container">
+    <div class="sec-head c reveal">
+      <span class="tag">Testimonials</span>
+      <h2 class="sec-title">Real investors.<br/>Real returns.</h2>
+      <p class="sec-sub">Join 48,000+ Indians earning passive income through fractional real estate.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I was told you need crores for real estate. Agent360 let me start with ₹10,000. I now earn ₹900 in rental income every single month — completely passive."</blockquote>
+        <div class="rev-who">
+          <div class="rev-av" style="background:var(--gold)">RK</div>
+          <div><div class="rev-name">Rahul Kulkarni</div><div class="rev-loc">Software Developer · Pune</div><div class="rev-tag">Invested ₹1.1L · Earning ₹900/mo</div></div>
+        </div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The dashboard is honestly better than my stock broker's app. I see every property, every rental payment, every rupee of appreciation in real-time. Brilliant."</blockquote>
+        <div class="rev-who">
+          <div class="rev-av" style="background:var(--teal)">NS</div>
+          <div><div class="rev-name">Nandita Sharma</div><div class="rev-loc">Teacher · Jaipur</div><div class="rev-tag">₹50,000 invested · 3 properties</div></div>
+        </div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"As an NRI I always struggled to invest back home. Agent360 made it seamless — full FEMA compliance, great support, and the returns speak for themselves."</blockquote>
+        <div class="rev-who">
+          <div class="rev-av" style="background:#8B5E3C">PM</div>
+          <div><div class="rev-name">Preethi Menon</div><div class="rev-loc">Marketing Manager · Dubai</div><div class="rev-tag">NRI Investor · ₹2.4L portfolio</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ NEWSLETTER ════ -->
+<section class="sec nl-section" id="newsletter">
+  <div class="nl-bg-glow"></div>
+  <div class="container">
+    <div class="nl-wrap">
+      <div class="nl-icon">🏡</div>
+      <h2>Stay Ahead of the Market</h2>
+      <p>Weekly property picks, yield updates, market analysis, and beginner guides — every Tuesday, free.</p>
+      <div class="nl-perks">
+        <span class="nl-perk">New listing alerts</span>
+        <span class="nl-perk">Yield data</span>
+        <span class="nl-perk">Market reports</span>
+        <span class="nl-perk">Zero spam</span>
+      </div>
+      <div class="nl-form reveal">
+        <input class="nl-in" type="email" id="nlEmail" placeholder="your@email.com"/>
+        <button class="btn btn-gold" onclick="doSubscribe()">Subscribe Free</button>
+      </div>
+      <p id="nl-msg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <div class="ft-logo">Agent360</div>
+      <p>India's most trusted fractional real estate investment platform. Making property investment accessible to every Indian, one unit at a time.</p>
+      <div class="ft-socials">
+        <a class="ft-soc" href="#" aria-label="X">𝕏</a>
+        <a class="ft-soc" href="#" aria-label="LinkedIn">in</a>
+        <a class="ft-soc" href="#" aria-label="Instagram">ig</a>
+        <a class="ft-soc" href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Invest</h4><ul><li><a href="#">Commercial Properties</a></li><li><a href="#">Residential Properties</a></li><li><a href="#">REITs</a></li><li><a href="#">Pre-Launch Properties</a></li><li><a href="#">NRI Investing</a></li></ul></div>
+    <div class="ft-col"><h4>Learn</h4><ul><li><a href="#">Beginner's Guide</a></li><li><a href="#">Blog & Insights</a></li><li><a href="#">Glossary</a></li><li><a href="#">Webinars</a></li><li><a href="#">FAQ</a></li></ul></div>
+    <div class="ft-col"><h4>Company</h4><ul><li><a href="#">About Agent360</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms & Conditions</a></li></ul></div>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2025 Agent360 Realty Pvt. Ltd. · CIN: U70200KA2024PTC000000 · agent360.in</p>
+    <p>SEBI Registered Investment Advisor · Investments subject to market risks · Read all documents carefully</p>
+  </div>
+</footer>
+
+<!-- ════ AUTH MODAL ════ -->
+<div class="overlay" id="authOverlay">
+  <div class="modal">
+    <div class="m-hd">
+      <h2 id="mTitle">Welcome Back</h2>
+      <button class="m-x" onclick="closeAuth()">✕</button>
+    </div>
+    <div class="m-tabs">
+      <button class="m-tab on" id="tLogin" onclick="switchTab('login')">Log In</button>
+      <button class="m-tab" id="tSignup" onclick="switchTab('signup')">Create Account</button>
+    </div>
+    <div class="m-form">
+      <div id="mNameWrap" style="display:none">
+        <input class="m-in" type="text" id="mName" placeholder="Full Name"/>
+      </div>
+      <input class="m-in" type="email" id="mEmail" placeholder="Email Address"/>
+      <input class="m-in" type="password" id="mPass" placeholder="Password (min. 8 characters)"/>
+      <button class="m-btn" id="mBtn" onclick="handleAuth()">Log In</button>
+      <p id="auth-msg"></p>
+      <p class="m-note">By continuing you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>. Your data is encrypted and secure.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════ TOAST ════ -->
+<div class="toast" id="toast"></div>
+
+<!-- ════════════════════════════════════
+     ALL JAVASCRIPT
+════════════════════════════════════ -->
+<script>
+/* ══ SUPABASE CONFIG ══════════════════════════
+   1. Go to https://supabase.com
+   2. Create project "agent360"
+   3. Settings → API → copy URL and anon key
+   4. Replace the two values below
+   5. Redeploy to Vercel
+══════════════════════════════════════════════ */
+const SUPA_URL = 'YOUR_SUPABASE_URL';
+const SUPA_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+let _db = null;
+function getDB() {
+  if (_db) return _db;
+  if (SUPA_URL === 'YOUR_SUPABASE_URL') return null;
+  try { _db = supabase.createClient(SUPA_URL, SUPA_KEY); return _db; }
+  catch(e) { console.warn('[Agent360] Supabase init failed:', e); return null; }
+}
+
+/* ══ CURSOR GLOW ══ */
+document.addEventListener('mousemove', e => {
+  const el = document.getElementById('cursorGlow');
+  if (el) { el.style.left = e.clientX + 'px'; el.style.top = e.clientY + 'px'; }
+});
+
+/* ══ NAVBAR ══ */
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  // Highlight active nav link
+  const sections = ['home','how','properties','calculator','portfolio','blog'];
+  const links = document.querySelectorAll('.nav-pill a');
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) current = id;
+  });
+  links.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}, {passive:true});
+
+document.getElementById('ham').addEventListener('click', () => {
+  document.getElementById('navPill').classList.toggle('open');
+});
+document.querySelectorAll('.nav-pill a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navPill').classList.remove('open'));
+});
+
+/* ══ TICKER ══ */
+const TICKERS = [
+  {name:'NIFTY 50',price:'24,762',chg:'+1.2%',up:true},
+  {name:'SENSEX',price:'81,455',chg:'+0.98%',up:true},
+  {name:'HDFC Bank',price:'₹1,672',chg:'+2.1%',up:true},
+  {name:'Reliance',price:'₹2,941',chg:'−0.4%',up:false},
+  {name:'TCS',price:'₹4,182',chg:'+1.8%',up:true},
+  {name:'Infosys',price:'₹1,894',chg:'+0.7%',up:true},
+  {name:'Gold MCX',price:'₹73,240',chg:'+0.3%',up:true},
+  {name:'USD/INR',price:'83.42',chg:'−0.1%',up:false},
+  {name:'Tata Motors',price:'₹983',chg:'−1.2%',up:false},
+  {name:'ICICI Bank',price:'₹1,234',chg:'+1.5%',up:true},
+];
+(function buildTicker(){
+  const track = document.getElementById('tickerTrack');
+  const items = [...TICKERS,...TICKERS];
+  track.innerHTML = items.map(t => `
+    <div class="ticker-item">
+      <span class="t-name">${t.name}</span>
+      <span class="t-price">${t.price}</span>
+      <span class="t-chg ${t.up?'t-up':'t-dn'}">${t.chg}</span>
+    </div>
+  `).join('');
+  // Update nav ticker
+  document.getElementById('navTicker').innerHTML = `<span>NIFTY</span><span class="tv">24,762 ▲</span>`;
+})();
+
+/* ══ SCROLL REVEAL ══ */
+const ro = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 80);
+    }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => ro.observe(el));
+
+/* ══ COUNTER ANIMATIONS ══ */
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      counterObs.unobserve(e.target);
+      animateCounters();
+    }
+  });
+}, { threshold: 0.5 });
+const counterSec = document.querySelector('.counters-sec');
+if (counterSec) counterObs.observe(counterSec);
+
+function animateCounters() {
+  const counters = [
+    {id:'c1', end:3847, duration:2000},
+    {id:'c2', end:48, duration:2200},
+    {id:'c3', end:11.4, duration:2400, decimal:1},
+    {id:'c4', end:120, duration:2600},
+  ];
+  counters.forEach(({id, end, duration, decimal}) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const start = 0;
+    const startTime = performance.now();
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = start + (end - start) * ease;
+      el.textContent = decimal ? current.toFixed(decimal) : Math.floor(current).toLocaleString('en-IN');
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+/* ══ PROGRESS BAR ANIMATE ══ */
+const progObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.prog-fill').forEach(f => {
+        const w = f.dataset.width || '0';
+        setTimeout(() => { f.style.width = w + '%'; }, 300);
+      });
+      progObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.listing').forEach(el => progObs.observe(el));
+
+/* ══ CALCULATOR ══ */
+function updateRangeBackground(input) {
+  const min = +input.min, max = +input.max, val = +input.value;
+  const pct = ((val - min) / (max - min)) * 100;
+  input.style.setProperty('--pct', pct + '%');
+}
+
+function calcRE(input) {
+  if (input) updateRangeBackground(input);
+
+  const amt   = +document.getElementById('cAmt').value;
+  const yld   = +document.getElementById('cYield').value;
+  const app   = +document.getElementById('cApp').value;
+  const yrs   = +document.getElementById('cYrs').value;
+
+  document.getElementById('cAmtV').textContent   = amt.toLocaleString('en-IN');
+  document.getElementById('cYieldV').textContent = yld.toFixed(1);
+  document.getElementById('cAppV').textContent   = app.toFixed(1);
+  document.getElementById('cYrsV').textContent   = yrs;
+
+  const monthly   = (amt * yld / 100) / 12;
+  const totalRent = monthly * 12 * yrs;
+  const propVal   = amt * Math.pow(1 + app / 100, yrs);
+  const total     = propVal + totalRent;
+  const gains     = total - amt;
+  const appGain   = propVal - amt;
+
+  const f = v => {
+    if (v >= 1e7) return '₹' + (v/1e7).toFixed(2) + ' Cr';
+    if (v >= 1e5) return '₹' + (v/1e5).toFixed(2) + 'L';
+    if (v >= 1e3) return '₹' + (v/1e3).toFixed(1) + 'K';
+    return '₹' + Math.round(v).toLocaleString('en-IN');
+  };
+
+  document.getElementById('reTotal').textContent    = f(total);
+  document.getElementById('reSub').textContent      = `Invested ${f(amt)} · Total gains ${f(gains)} (+${Math.round(gains/amt*100)}%)`;
+  document.getElementById('reMonthly').textContent  = f(monthly) + '/mo';
+  document.getElementById('reTotalRent').textContent= f(totalRent);
+  document.getElementById('rePropVal').textContent  = f(propVal);
+  document.getElementById('reRetPct').textContent   = '+' + Math.round(gains/amt*100) + '%';
+
+  // Donut chart
+  const circumference = 2 * Math.PI * 48; // ~301.6
+  const invPct   = amt / total;
+  const renPct   = totalRent / total;
+  const appPct   = appGain / total;
+
+  const invDash  = invPct * circumference;
+  const renDash  = renPct * circumference;
+  const appDash  = Math.max(0, appPct) * circumference;
+
+  // Cumulative offsets (rotated so they stack)
+  const fullCirc = circumference;
+  document.getElementById('donutInv').setAttribute('stroke-dasharray', `${invDash} ${fullCirc - invDash}`);
+  document.getElementById('donutInv').setAttribute('stroke-dashoffset', '0');
+  document.getElementById('donutRen').setAttribute('stroke-dasharray', `${renDash} ${fullCirc - renDash}`);
+  document.getElementById('donutRen').setAttribute('stroke-dashoffset', -invDash + '');
+  document.getElementById('donutApp').setAttribute('stroke-dasharray', `${appDash} ${fullCirc - appDash}`);
+  document.getElementById('donutApp').setAttribute('stroke-dashoffset', -(invDash + renDash) + '');
+  document.getElementById('donutPct').textContent = Math.round(gains/amt*100) + '%';
+}
+
+// Init all range backgrounds and calculate
+document.querySelectorAll('input[type=range]').forEach(updateRangeBackground);
+calcRE(null);
+
+/* ══ AUTH ══ */
+let curTab = 'login';
+
+function openAuth(tab) {
+  curTab = tab || 'login';
+  switchTab(curTab);
+  document.getElementById('authOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('mEmail')?.focus(), 350);
+}
+
+function closeAuth() {
+  document.getElementById('authOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('auth-msg').textContent = '';
+}
+
+document.getElementById('authOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeAuth();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAuth(); });
+
+function switchTab(t) {
+  curTab = t;
+  document.getElementById('tLogin').classList.toggle('on', t === 'login');
+  document.getElementById('tSignup').classList.toggle('on', t === 'signup');
+  document.getElementById('mTitle').textContent  = t === 'login' ? 'Welcome Back' : 'Start Investing';
+  document.getElementById('mBtn').textContent    = t === 'login' ? 'Log In' : 'Create Free Account';
+  document.getElementById('mNameWrap').style.display = t === 'signup' ? 'block' : 'none';
+  document.getElementById('auth-msg').textContent = '';
+  document.getElementById('mEmail').value = '';
+  document.getElementById('mPass').value = '';
+}
+
+async function handleAuth() {
+  const email = document.getElementById('mEmail').value.trim();
+  const pass  = document.getElementById('mPass').value;
+  const msg   = document.getElementById('auth-msg');
+  const btn   = document.getElementById('mBtn');
+
+  // Validation
+  if (!email) { msg.textContent = 'Please enter your email address.'; msg.className = 'a-err'; return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = 'Please enter a valid email address.'; msg.className = 'a-err'; return; }
+  if (!pass)  { msg.textContent = 'Please enter your password.'; msg.className = 'a-err'; return; }
+  if (pass.length < 8) { msg.textContent = 'Password must be at least 8 characters.'; msg.className = 'a-err'; return; }
+
+  btn.disabled = true;
+  btn.textContent = curTab === 'login' ? 'Logging in…' : 'Creating account…';
+  msg.textContent = '';
+
+  const db = getDB();
+
+  try {
+    if (!db) {
+      // Demo mode — Supabase not configured yet
+      await new Promise(r => setTimeout(r, 1200));
+      closeAuth();
+      showToast(curTab === 'login'
+        ? '👋 Welcome back to Agent360!'
+        : '🎉 Account created! Let\'s find your first property.');
+    } else {
+      let result;
+      if (curTab === 'login') {
+        result = await db.auth.signInWithPassword({ email, password: pass });
+      } else {
+        const name = (document.getElementById('mName')?.value || '').trim();
+        result = await db.auth.signUp({
+          email, password: pass,
+          options: { data: { full_name: name } }
+        });
+        if (!result.error && result.data?.user) {
+          await db.from('investors').upsert({
+            id: result.data.user.id,
+            email,
+            full_name: name,
+            created_at: new Date().toISOString()
+          }, { onConflict: 'id' });
+        }
+      }
+      if (result.error) throw result.error;
+      closeAuth();
+      showToast(curTab === 'login'
+        ? '👋 Welcome back!'
+        : '🎉 Account created! Start exploring properties.');
+    }
+  } catch(err) {
+    let m = err.message || 'Something went wrong. Please try again.';
+    if (m.includes('Invalid login') || m.includes('invalid_credentials')) m = 'Incorrect email or password. Please try again.';
+    if (m.includes('already registered') || m.includes('already exists')) m = 'This email is already registered. Try logging in.';
+    if (m.includes('rate limit')) m = 'Too many attempts. Please wait a minute.';
+    if (m.includes('email not confirmed')) m = 'Please check your email and confirm your account first.';
+    msg.textContent = m;
+    msg.className = 'a-err';
+  }
+
+  btn.disabled = false;
+  btn.textContent = curTab === 'login' ? 'Log In' : 'Create Free Account';
+}
+
+/* ══ NEWSLETTER ══ */
+async function doSubscribe() {
+  const email = document.getElementById('nlEmail').value.trim();
+  const msg   = document.getElementById('nl-msg');
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = 'Please enter a valid email address.';
+    msg.className = 'nl-err';
+    return;
+  }
+  msg.textContent = 'Subscribing…'; msg.className = '';
+  const db = getDB();
+  if (db) {
+    try {
+      await db.from('newsletter').upsert(
+        { email, subscribed_at: new Date().toISOString(), is_active: true },
+        { onConflict: 'email' }
+      );
+    } catch(e) { console.warn('[Agent360] Newsletter error:', e); }
+  }
+  await new Promise(r => setTimeout(r, 700));
+  msg.textContent = '🎉 You\'re in! Welcome email on its way.';
+  msg.className = 'nl-ok';
+  document.getElementById('nlEmail').value = '';
+}
+
+/* ══ TOAST ══ */
+function showToast(text, dur = 4500) {
+  const t = document.getElementById('toast');
+  t.textContent = text;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), dur);
+}
+
+/* ══ ENTER KEY on auth form ══ */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && document.getElementById('authOverlay').classList.contains('open')) {
+    handleAuth();
+  }
+});
+</script>
+</body>
+</html>
